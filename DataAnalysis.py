@@ -1,7 +1,15 @@
 import pandas as pd
+import os
 
 # Load the dataset
-df = pd.read_csv("./Datasets/loan_approval_dataset.csv")
+df = pd.read_csv(
+    os.path.realpath(
+        os.path.join(
+            os.path.dirname(os.path.realpath(__file__)),
+            "./Datasets/loan_approval_dataset.csv",
+        )
+    )
+)
 
 # Display the first and last 12 rows
 print(df.head(12))
@@ -48,4 +56,3 @@ print(f"Standard Deviation of '{numerical_column}': {std_deviation}")
 print(f"20th Percentile of '{numerical_column}': {percentile_20}")
 print(f"50th Percentile of '{numerical_column}': {percentile_50}")
 print(f"80th Percentile of '{numerical_column}': {percentile_80}")
-
